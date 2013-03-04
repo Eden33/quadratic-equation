@@ -21,13 +21,17 @@ public class Main {
 		if(scanner != null) {
 			System.out.println("Welcome ...");
 			System.out.println("Example equations: ");
-			System.out.println("x^2-1x-6=0 -> results in (x1: 3.00 and x2: -2.00");
-			System.out.println("4x^2-12x-40=0 -> results in (x1: 5:00 and x2: -2.00");
+			System.out.println("x^2-1x-6=0 -> results in (x1: 3.00 and x2: -2.00)");
+			System.out.println("4x^2-12x-40=0 -> results in (x1: 5:00 and x2: -2.00)");
 			System.out.println("----------------------------------------------------------");
 			System.out.println(pleaseEnterEquationMessage);
 			
-			while(!"exit".equals(theEquation)) {
+			while(true) {
 				theEquation = scanner.nextLine();
+				
+				if("exit".equals(theEquation)) 
+					break;
+				
 				calculatedXValues = null;
 				aPart = EquationFormatUtil.getAPartOfQuadraticZeroEquation(theEquation);
 				bPart = EquationFormatUtil.getBPartOfQuadraticZeroEquation(theEquation);
