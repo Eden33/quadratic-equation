@@ -1,6 +1,7 @@
 package fhv.math;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class EquationUtil {
 	
@@ -22,6 +23,8 @@ public class EquationUtil {
 			BigDecimal numeratorXTwo = bPartConst.negate().subtract(new BigDecimal(sqrt));
 			BigDecimal x1 = numeratorXOne.divide(new BigDecimal("2").multiply(aPartConst));
 			BigDecimal x2 = numeratorXTwo.divide(new BigDecimal("2").multiply(aPartConst));
+			x1 = x1.setScale(2, RoundingMode.HALF_UP);
+			x2 = x2.setScale(2, RoundingMode.HALF_UP);
 			
 			BigDecimal[] result = new BigDecimal[2];
 			result[0] = x1;

@@ -7,7 +7,7 @@ public class EquationFormatUtil {
 
 	/**
 	 * @param theEquation - the quadratic equation like "ax^2 + bx + c = 0"
-	 * @return null on format error, else the A part -> ax^2
+	 * @return null on format error, else the c constant of the A part -> ax^2
 	 */
 	public static String getAPartOfQuadraticZeroEquation(String theEquation) {
 		String retVal = null;
@@ -23,7 +23,7 @@ public class EquationFormatUtil {
 	}
 	/**
 	 * @param theEquation - the quadratic equation like "ax^2 + bx + c = 0"
-	 * @return null on format error, else the B part
+	 * @return null on format error, else the b constant of the B part -> bx
 	 */
 	public static String getBPartOfQuadraticZeroEquation(String theEquation) {
 		String retVal = null;
@@ -41,7 +41,7 @@ public class EquationFormatUtil {
 	
 	/**
 	 * @param theEquation - the quadratic equation like "ax^2 + bx + c = 0"
-	 * @return null on format error, else the C part
+	 * @return null on format error, else the c constant of the C part -> c
 	 */
 	public static String getCPartOfQuadraticZeroEquation(String theEquation) {
 		String retVal = null;
@@ -111,7 +111,7 @@ public class EquationFormatUtil {
 		if(theEquation == null)
 			return theEquation;
 		theEquation = theEquation.replace(" ", "");
-		Pattern p = Pattern.compile("^((\\+|-)?\\d+|\\d*)x\\^2(\\+|-)\\d*x(\\+|-)\\d+=0");
+		Pattern p = Pattern.compile("^((\\+|-)?\\d+|\\d*)x\\^2(\\+|-)\\d*x(\\+|-)[1-9]{1}\\d*=0");
 		Matcher m = p.matcher(theEquation);
 		if(m.find() == false) {			
 			theEquation = null;
